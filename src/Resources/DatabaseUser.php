@@ -1,0 +1,59 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Ugarit\Forge\Resources;
+
+class DatabaseUser extends Resource
+{
+    /**
+     * The slug of the organization.
+     */
+    public string $organizationSlug;
+
+    /**
+     * The id of the database user.
+     */
+    public ?int $id = null;
+
+    /**
+     * The id of the server.
+     */
+    public ?int $serverId = null;
+
+    /**
+     * The name of the database user.
+     */
+    public ?string $name = null;
+
+    /**
+     * The status of the database user.
+     */
+    public ?string $status = null;
+
+    /**
+     * The date/time the database user was created.
+     */
+    public ?string $createdAt = null;
+
+    /**
+     * The date/time the database user was last updated.
+     */
+    public ?string $updatedAt = null;
+
+    /**
+     * Update the given Database User.
+     */
+    public function update(array $data): void
+    {
+        $this->forge->updateDatabaseUser($this->organizationSlug, $this->serverId, $this->id, $data);
+    }
+
+    /**
+     * Delete the given user.
+     */
+    public function delete(): void
+    {
+        $this->forge->deleteDatabaseUser($this->organizationSlug, $this->serverId, $this->id);
+    }
+}

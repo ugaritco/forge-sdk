@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Ugarit\Forge\Resources;
+
+class LoadBalancingStrategies
+{
+    const ROUND_ROBIN = 'round_robin';
+
+    const LEAST_CONNECTIONS = 'least_conn';
+
+    const IP_HASH = 'ip_hash';
+}
